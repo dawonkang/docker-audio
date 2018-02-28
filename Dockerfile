@@ -13,6 +13,7 @@ ENV PATH /root/anaconda2/bin:$PATH
 # Updating Anaconda packages
 RUN conda update conda
 RUN conda update anaconda
+RUN conda update tensorflow keras
 RUN conda update --all
 # Configuring access to Jupyter
 RUN mkdir /opt/notebooks
