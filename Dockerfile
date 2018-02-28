@@ -13,8 +13,10 @@ ENV PATH /root/anaconda2/bin:$PATH
 # Updating Anaconda packages
 RUN conda update conda
 RUN conda update anaconda
-RUN conda install tensorflow keras
 RUN conda update --all
+#install tensorflow keras
+RUN pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp27-none-linux_x86_64.whl
+RUN pip install --ignore-installed --upgrade keras
 # Configuring access to Jupyter
 RUN mkdir /opt/notebooks
 RUN jupyter notebook --generate-config --allow-root
