@@ -4,6 +4,8 @@ FROM ubuntu
 RUN apt-get update && yes|apt-get upgrade
 # Adding wget and bzip2
 RUN apt-get install -y wget bzip2
+# Adding git
+RUN apt-get install git
 # Anaconda installing
 RUN wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh
 RUN bash Anaconda2-5.1.0-Linux-x86_64.sh -b
