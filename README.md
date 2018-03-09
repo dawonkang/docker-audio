@@ -1,6 +1,8 @@
 # docker-audio
 Recognizing Audio with Anaconda2-5.1.0-Linux-x86_64
 
+https://medium.freecodecamp.org/how-to-use-sound-classification-with-tensorflow-on-an-iot-platform-8997eb7bbdef
+
 docker run --name docker-audio -p 8888:8888 -v "$PWD/notebooks:/opt/notebooks" -v "$PWD/models:/root/models" -d risinsun/docker-audio-auto
 
 # into the container
@@ -23,4 +25,10 @@ https://storage.googleapis.com/audioset/vggish_model.ckpt
 https://storage.googleapis.com/audioset/vggish_pca_params.npz
 
 # train
-python train.py --train_data_pattern=/Volumes/Data/Work/docker-audio/models/audioset_v1_embeddings/bal_train/*.tfrecord --frame_features=True --model=FrameLevelLogisticModel --feature_names="audio_embedding" --feature_sizes="128" --batch_size="512" --num_epochs="100" --learning_rate_decay_examples="400000" --num_classes="527" --train_dir=/Volumes/Data/Work/docker-audio/models/logs --start_new_model
+python train.py --train_data_pattern=/Volumes/Data/Work/docker-audio/models/audioset_v1_embeddings/bal_train/*.tfrecord --frame_features=True --model=FrameLevelLogisticModel --feature_names="audio_embedding" --feature_sizes="128" --batch_size="512" --num_epochs="1000" --learning_rate_decay_examples="400000" --num_classes="527" --train_dir=/Volumes/Data/Work/docker-audio/models/logs --start_new_model
+
+# eval
+python eval.py --eval_data_pattern=/Volumes/Data/Work/docker-audio/models/audioset_v1_embeddings/eval/*.tfrecord --frame_features=True --model=FrameLevelLogisticModel --feature_names="audio_embedding" --feature_sizes="128" --batch_size="512" --num_epochs="1000" --learning_rate_decay_examples="400000" --num_classes="527" --train_dir=/Volumes/Data/Work/docker-audio/models/logs --run_once=True
+
+# packages
+https://s3.amazonaws.com/audioanalysis/models.tar.gz
