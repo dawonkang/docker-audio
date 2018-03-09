@@ -19,6 +19,8 @@ docker push risinsun/docker-audio:0.1
 
 # download Audioset features
 http://storage.googleapis.com/asia_audioset/youtube_corpus/v1/features/features.tar.gz
+https://storage.googleapis.com/audioset/vggish_model.ckpt
+https://storage.googleapis.com/audioset/vggish_pca_params.npz
 
 # train
-python train.py --train_data_pattern=/Volumes/Data/Work/docker-audio/models/audioset_v1_embeddings/bal_train/*.tfrecord -–num_epochs=100 –-learning_rate_decay_examples=400000 –-feature_names=audio_embedding –-feature_sizes=128 –-frame_features –-batch_size=512 -–num_classes=527 -–train_dir=/Volumes/Data/Work/docker-audio/models/logs –-model=LogisticModel
+python train.py --train_data_pattern=/Volumes/Data/Work/docker-audio/models/audioset_v1_embeddings/bal_train/*.tfrecord --frame_features=True --model=FrameLevelLogisticModel --feature_names="audio_embedding" --feature_sizes="128" --batch_size="512" --num_epochs="100" --learning_rate_decay_examples="400000" --num_classes="527" --train_dir=/Volumes/Data/Work/docker-audio/models/logs --start_new_model
