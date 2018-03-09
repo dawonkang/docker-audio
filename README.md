@@ -3,6 +3,7 @@ Recognizing Audio with Anaconda2-5.1.0-Linux-x86_64
 
 https://medium.freecodecamp.org/how-to-use-sound-classification-with-tensorflow-on-an-iot-platform-8997eb7bbdef
 
+# run docker
 docker run --name docker-audio -p 8888:8888 -v "$PWD/notebooks:/opt/notebooks" -v "$PWD/models:/root/models" -d risinsun/docker-audio-auto
 
 # into the container
