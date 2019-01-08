@@ -20,6 +20,7 @@ RUN conda update --all
 RUN pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp27-none-linux_x86_64.whl
 RUN pip install --ignore-installed --upgrade keras
 RUN pip install --ignore-installed --upgrade coremltools
+RUN pip install --ignore-installed --upgrade selenium
 # Configuring access to Jupyter
 RUN mkdir /opt/notebooks
 RUN jupyter notebook --generate-config --allow-root
