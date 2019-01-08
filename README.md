@@ -32,4 +32,8 @@ python train.py --train_data_pattern=/Volumes/Data/Work/docker-audio/models/audi
 python eval.py --eval_data_pattern=/Volumes/Data/Work/docker-audio/models/audioset_v1_embeddings/eval/*.tfrecord --frame_features=True --model=FrameLevelLogisticModel --feature_names="audio_embedding" --feature_sizes="128" --batch_size="512" --num_epochs="1000" --learning_rate_decay_examples="400000" --num_classes="527" --train_dir=/Volumes/Data/Work/docker-audio/models/logs --run_once=True
 
 # packages
+https://github.com/devicehive/devicehive-audio-analysis
 https://s3.amazonaws.com/audioanalysis/models.tar.gz
+
+# convert to 16K mono
+ffmpeg -i 111.mp3 -acodec pcm_s16le -ac 1 -ar 16000 out.wav
