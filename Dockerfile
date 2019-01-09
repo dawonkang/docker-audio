@@ -7,9 +7,9 @@ RUN apt-get install -y wget bzip2
 # Adding git
 RUN apt-get install -y git
 # Anaconda installing
-RUN wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh
-RUN bash Anaconda2-5.1.0-Linux-x86_64.sh -b
-RUN rm Anaconda2-5.1.0-Linux-x86_64.sh
+RUN wget https://repo.continuum.io/archive/Anaconda2-5.3.1-Linux-x86_64.sh
+RUN bash Anaconda2-5.3.1-Linux-x86_64.sh -b
+RUN rm Anaconda2-5.3.1-Linux-x86_64.sh
 # Set path to conda
 ENV PATH /root/anaconda2/bin:$PATH
 # Updating Anaconda packages
@@ -17,7 +17,7 @@ RUN conda update conda
 RUN conda update anaconda
 RUN conda update --all
 #install tensorflow keras
-RUN pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp27-none-linux_x86_64.whl
+RUN pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.12.0-cp27-none-linux_x86_64.whl
 RUN pip install --ignore-installed --upgrade keras
 RUN pip install --ignore-installed --upgrade coremltools
 RUN pip install --ignore-installed --upgrade selenium
